@@ -13,9 +13,8 @@ One example:
 wget --user=yaoyu.9404@gmail.com --password=Eequals271828.. --content-disposition 'https://catalogue.onda-dias.eu/dias-catalogue/Products(e39c2006-8f38-483e-a556-d34106b8f020)/$value'
 
 
-downloading the S3A SRAL level-2 WAT files:
+searching S3A SRAL level-2 WAT files:
 search cycle number (10, for example), orbit direction
-
 https://catalogue.onda-dias.eu/dias-catalogue/Products?$search="name:S3A_SR_2_WAT__*,%20lastOrbitDirection:DESCENDING,%20cycleNumber:10"
 
 Count the number of matching products:
@@ -42,10 +41,13 @@ https://catalogue.onda-dias.eu/dias-catalogue/Products?$skip=2000&$top=2000&$sel
 
 download_S3B.sh
 ***********************************************************
-file="S3B_20"
+
+file="S3A_2000"
 # extract id and print to file:
+rm id.txt
 sed 's/(/ /g' $file | sed 's/)/ /g' | awk '{ for (i = 2; i <= NF; i += 2) print $i > "id.txt"}'
-#
+# creat download links:
+rm download.com
 file2="id.txt"
 I="wget --user=yaoyu.9404@gmail.com --password=Eequals271828.. --content-disposition 'https://catalogue.onda-dias.eu/dias-catalogue/Products("
 E=")/\$value'"
