@@ -59,7 +59,7 @@ done < "$file2"
 #
 # execute 
 chmod +x download.com
-./download.com
+./download.com >& log &
 *************************************************************
 
 
