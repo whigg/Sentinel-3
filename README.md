@@ -35,7 +35,7 @@ https://catalogue.onda-dias.eu/dias-catalogue/Products?$top=2000&$select=id&$sea
 
 https://catalogue.onda-dias.eu/dias-catalogue/Products?$top=2000&$select=id&$search="name:S3B_SR_2_WAT__*"
 
-https://catalogue.onda-dias.eu/dias-catalogue/Products?$skip=2000&$top=2000&$select=id&$search="name:S3B_SR_2_WAT__*"
+https://catalogue.onda-dias.eu/dias-catalogue/Products?$skip=2000&$top=2000&$select=id&$search="name:S3A_SR_2_WAT__*"
 
 
 
