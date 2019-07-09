@@ -65,6 +65,7 @@ chmod +x download.com
 
 
 
+
 # searching by sensing date
 https://catalogue.onda-dias.eu/dias-catalogue/Products/$count?$search="beginPosition:[2016-02-01T00:00:00.000Z%20TO%202018-06-01T00:00:00.000Z], name:S3A_SR_2_WAT__*"
 
