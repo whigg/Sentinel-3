@@ -1,0 +1,11 @@
+ a structure for jason data:
+ /radar/mgg/alt/rfmt_jason/src/jason20hz.h
+ 
+ need to modify it to fit S3
+ 
+ 
+ read netcdf files and make the 20 Hz data records for retracking:
+ /radar/mgg/alt/rfmt_jason/src/jsgdr2wdr.c
+ 
+ make condensed data records from the 20 Hz waveform data:
+ /radar/mgg/alt/retrack/src/c20_lrm_cdr
