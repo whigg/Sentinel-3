@@ -9,7 +9,7 @@ gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 3) printf ("%.6f %.6f\n", $3/1.e
 
 
 
-################## track plot #############################################################################
+### track plot ############################################################################################
 #############################################################################################################
 convert to kml file
 # line
@@ -21,15 +21,13 @@ gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 2) printf ("%.6f %.6f\n", $3/1.e
 # points over the ocean/lake ($11 = 0 or 1) with good quality ($10 = 0)
 gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track3.kml
 
-
-
-
-
 gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > allpoints.dat
 gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 2) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > oceanpoints.dat
 gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > goodpoints.dat
 
+#############################################################################################################
 
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) 
 
 
 
