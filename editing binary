@@ -1,0 +1,6 @@
+look at the extracted binary file:
+
+
+
+
+gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 3) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | more
