@@ -1,0 +1,53 @@
+Using the s3ab_20hz.c file written by Walter Smith to read a single standrad_measurement.nc file.
+
+
+to look at the extracted binary file:
+gmtconvert test.dat -bi10i,i8h | more
+
+exclude the land region:
+gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 3) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | more
+
+
+
+################## track plot #############################################################################
+#############################################################################################################
+convert to kml file
+# line
+# gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track.kml
+# points
+gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track.kml
+# points over the ocean/lake ($11 = 0 or 1)
+gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 2) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track2.kml
+# points over the ocean/lake ($11 = 0 or 1) with good quality ($10 = 0)
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track3.kml
+
+
+
+
+
+gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > allpoints.dat
+gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 2) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > oceanpoints.dat
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > goodpoints.dat
+
+
+
+
+
+read the output binary file and edit out unwanted measurements.
+unwanted: flagbits = 1;
+over land/ice
+
+working under:
+/scratch/S3B_SR_2_WAT____20181111T055447_20181111T064012_20181206T214838_2725_017_020______MAR_O_NT_003.SEN3
+
+
+looking at the extracted binary file:
+gmtconvert test.dat -bi10i,i8h | more
+
+
+
+
+
+
+
+
