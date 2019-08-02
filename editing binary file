@@ -16,19 +16,21 @@ convert to kml file
 # gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track.kml
 # points
 gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track.kml
-# points over the ocean/lake ($11 = 0 or 1)
-gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 2) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track2.kml
-# points over the ocean/lake ($11 = 0 or 1) with good quality ($10 = 0)
-gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track3.kml
+# points over the ocean/lake ($11 = 0 or 1, $12=0)
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($12 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track2.kml
+# points over the ocean/lake ($11 = 0 or 1, $12=0) with good quality ($10 = 0)
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) &&($12 == 0) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track3.kml
 
 gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > allpoints.dat
-gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 2) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > oceanpoints.dat
-gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > goodpoints.dat
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($12 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > oceanpoints.dat
+gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) &&($12 == 0) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > goodpoints.dat
 
+### editing file
 #############################################################################################################
+gmtconvert test.dat -bi10i,i8h | awk '{if (($11 < 2) && ($10 == 0)) for (i = 1; i <= 15; i += 1) printf ("%i\n", $i)}' | more
 
-gmtconvert test.dat -bi10i,i8h | awk '{(($11 < 2) && ($10 == 0))}' | more
 
+gmtconvert test.dat -bi10i,i8h > path20.dat
 
 
 read the output binary file and edit out unwanted measurements.
@@ -37,12 +39,6 @@ over land/ice
 
 working under:
 /scratch/S3B_SR_2_WAT____20181111T055447_20181111T064012_20181206T214838_2725_017_020______MAR_O_NT_003.SEN3
-
-
-looking at the extracted binary file:
-gmtconvert test.dat -bi10i,i8h | more
-
-
 
 
 
