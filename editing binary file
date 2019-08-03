@@ -1,11 +1,12 @@
 Using the s3ab_20hz.c file written by Walter Smith to read a single standrad_measurement.nc file.
 
+s3ab20hz standard_measurement.nc > test.dat
 
 to look at the extracted binary file:
-gmtconvert test.dat -bi10i,i8h | more
+gmtconvert test.dat -bi11i,i8h | more
 
 exclude the land region:
-gmtconvert test.dat -bi10i,i8h | awk '{if($11 < 3) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | more
+gmtconvert test.dat -bi11i,i8h | awk '{if($11 < 3) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | more
 
 
 
@@ -30,8 +31,8 @@ gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) &&($12 == 0) && ($10 == 0)) 
 gmtconvert test.dat -bi10i,i8h | awk '{if (($11 < 2) && ($10 == 0)) for (i = 1; i <= 15; i += 1) printf ("%i\n", $i)}' | more
 
 
-gmtconvert test.dat -bi10i,i8h > path20.dat
-
+gmtconvert test.dat -bi11i,i8h > path20.dat
+gmtconvert test2.dat -bi11i,i8h > path332.dat
 
 read the output binary file and edit out unwanted measurements.
 unwanted: flagbits = 1;
@@ -42,6 +43,4 @@ working under:
 
 
 
-
-
-
+gmtconvert test230.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track230.kml
