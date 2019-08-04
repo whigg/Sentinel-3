@@ -1,3 +1,7 @@
+ David's notes on data processing under:
+ /Volumes/radar/radar/mgg/alt/doc
+ 
+ ########################################################
  a structure for jason data:
  /radar/mgg/alt/rfmt_jason/src/jason20hz.h
  
@@ -5,13 +9,23 @@ modify it to fit S3
 /radar/mgg/alt/rfmt_s3
 s3ab20hz.h
 s3ab20hz.c
-usage: 
+usage: s3ab20hz infile.nc > outfile
+
+#########################################################
+Editing and reampling:
+editing bad data then filtered and resampled at 5 Hz
+examples: 
+ 
+matlab code for filter designing under:
+/Volumes/radar/radar/mgg/alt/cdr/filters
  
  
- 
- 
- 
- 
+ /radar/mgg/alt/retrack/src
+ cd j20_cdr   # this is the directory for Jason 20 Hz editing and resampling
+ ls
+ filter.inc	j20_cdr.f95
+ filter.inc: to store the 9-point filter
+ j20_cdr.f95: code to do editing and 5Hz filtering
  
  
  
