@@ -14,21 +14,21 @@ gmtconvert test.dat -bi11i,i8h | awk '{if($11 < 3) printf ("%.6f %.6f\n", $3/1.e
 #############################################################################################################
 convert to kml file
 # line
-# gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track.kml
+# gmtconvert test.dat -bi11i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track.kml
 # points
-gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track.kml
-# points over the ocean/lake ($11 = 0 or 1, $12=0)
-gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($12 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track2.kml
-# points over the ocean/lake ($11 = 0 or 1, $12=0) with good quality ($10 = 0)
-gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) &&($12 == 0) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track3.kml
+gmtconvert test.dat -bi11i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track.kml
+# points over the ocean/lake ($12 = 0 or 1, $13=0)
+gmtconvert test.dat -bi11i,i8h | awk '{if(($12 < 2) && ($13 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track2.kml
+# points over the ocean/lake ($11 = 0 or 1, $12=0) with good quality ($11 = 0)
+gmtconvert test.dat -bi11i,i8h | awk '{if(($12 < 2) &&($13 == 0) && ($11 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fs -Gfyellow -W2p,yellow > track3.kml
 
-gmtconvert test.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > allpoints.dat
-gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) && ($12 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > oceanpoints.dat
-gmtconvert test.dat -bi10i,i8h | awk '{if(($11 < 2) &&($12 == 0) && ($10 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > goodpoints.dat
+gmtconvert test.dat -bi11i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > allpoints.dat
+gmtconvert test.dat -bi11i,i8h | awk '{if(($12 < 2) && ($13 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > oceanpoints.dat
+gmtconvert test.dat -bi11i,i8h | awk '{if(($12 < 2) &&($13 == 0) && ($11 == 0)) printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' > goodpoints.dat
 
 ### editing file
 #############################################################################################################
-gmtconvert test.dat -bi10i,i8h | awk '{if (($11 < 2) && ($10 == 0)) for (i = 1; i <= 15; i += 1) printf ("%i\n", $i)}' | more
+gmtconvert test.dat -bi11i,i8h | awk '{if (($12 < 2) && ($11 == 0)) for (i = 1; i <= 16; i += 1) printf ("%i\n", $i)}' | more
 
 
 gmtconvert test.dat -bi11i,i8h > path20.dat
