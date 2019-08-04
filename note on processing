@@ -1,7 +1,19 @@
  a structure for jason data:
  /radar/mgg/alt/rfmt_jason/src/jason20hz.h
  
- need to modify it to fit S3
+modify it to fit S3
+/radar/mgg/alt/rfmt_s3
+s3ab20hz.h
+s3ab20hz.c
+usage: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  read netcdf files and make the 20 Hz data records for retracking:
