@@ -43,4 +43,4 @@ working under:
 
 
 
-gmtconvert test230.dat -bi10i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track230.kml
+gmtconvert test230.dat -bi11i,i8h | awk '{printf ("%.6f %.6f\n", $3/1.e6, $4/1.e6)}' | gmt gmt2kml -Fl -W5p,yellow > track230.kml
