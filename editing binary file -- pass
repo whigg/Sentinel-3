@@ -1,5 +1,12 @@
 Using the s3ab_20hz.c file written by Walter Smith to read a single standrad_measurement.nc file.
 
+using ncdump to look at .nc file:
+ncdump -h file.nc
+ncdump -h file.nc | grep time_20_ku
+ncdump -h file.nc | grep time_20_ku | grep -v ice
+
+
+
 s3ab20hz standard_measurement.nc > test.dat
 
 to look at the extracted binary file:
