@@ -19,11 +19,14 @@ editing bad data then filter and resample at 5 Hz
 matlab code for filter designing under:
 /Volumes/radar/radar/mgg/alt/cdr/filters
 
+modifying under:
+/Users/yayu/Documents/MATLAB/S3_filter
+makefilter20hz_7km.m
 
 find the sampling characteristics of S3 and Altika
 S3: altitude 815 km;
     velocity 6690 m/s
-    dt1: find the median of several passes then averaging
+    dt1: 0.493 s
  
  Jason example:
  /radar/mgg/alt/retrack/src
