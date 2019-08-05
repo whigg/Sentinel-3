@@ -36,9 +36,16 @@ S3: altitude 815 km;
  filter.inc: to store the 9-point filter
  j20_cdr.f95: code to do editing (setting flags and thresholds in this file) and 5Hz filtering
  
+ result:
+ file: s3ab.dat
  
+ ##########################################################
  for S3, create a directory:  /radar/mgg/alt/retrack/src/s3ab20_cdr;
- put the 99-point filter to filter.inc;
+ put the 99-point filter to filter.inc; done!
+ 
+ write a s3ab20hz.inc to put the 60 bytes head infomation;
+ # working under directory: /Users/yayu/Documents/MATLAB/s3ab_cdr
+ 
  write a .f program s3ab20_cdr.f95 to do the editing and filtering
  
  slides on finding the thresholds for editing
@@ -46,6 +53,23 @@ S3: altitude 815 km;
  ###########################################################
  
  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ###########################################################
  
  
  read netcdf files and make the 20 Hz data records for retracking:
