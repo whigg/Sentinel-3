@@ -21,6 +21,11 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
 ### .f code ###
  write a .f program s3ab20_cdr.f95 to do the editing and filtering
  
+ 
+ 
+  gmtconvert s3des -bi7i | more
+ 
+ 
 ##############
 ### filter ###
 matlab code for filter designing under:
