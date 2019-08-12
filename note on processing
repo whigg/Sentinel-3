@@ -24,6 +24,15 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
  
  
   gmtconvert s3des -bi7i | more
+  
+  utcsec (s)
+  microsec (1.e-6))
+  lat (1.e-6)
+  lon (1.e-6)
+  ssh (alt - range)
+  swh
+  
+  
  
  
 ##############
