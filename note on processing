@@ -22,7 +22,8 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
  write a .f program s3ab20_cdr.f95 to do the editing and filtering
  
  
- 
+##################################################
+##to look at condensed files in binary format (/cryosat2/gravity/filtered_data): ###
   gmtconvert s3des -bi7i | more
   
   utcsec (s)
@@ -31,6 +32,9 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
   lon (1.e-6)
   ssh (alt - range)
   swh
+  
+ or to use the funtion fmtcdr
+  
   
   
  
