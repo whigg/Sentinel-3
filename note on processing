@@ -40,6 +40,11 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
 matlab code for filter designing under:
 /Volumes/radar/radar/mgg/alt/cdr/filters
 
+altika filter under:
+/radar/mgg/alt/retrack/src/a40_cdr/altikafilter.inc
+(there is only one filter file, no source code)
+
+
 modifying under:
 /Users/yayu/Documents/MATLAB/S3_filter
 makefilter20hz_7km.m
