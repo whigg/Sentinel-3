@@ -34,7 +34,10 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
   swh
   
  or to use the funtion fmtcdr
-  
+ 
+ to avoid that it will print too many lines, use
+ fmtcdr | more \n
+ filename \n
   
   
  
