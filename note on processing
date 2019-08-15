@@ -23,7 +23,7 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
  
  
 ##################################################
-##to look at condensed files in binary format (/cryosat2/gravity/filtered_data): ###
+##to look at condensed files in binary format (/cryosat2/gravity/filtered_data/*.int): ###
   gmtconvert s3des -bi7i | more
   
   utcsec (s)
