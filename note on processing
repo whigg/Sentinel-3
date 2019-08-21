@@ -24,6 +24,15 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
  ###############
  aedit.f
  
+ 
+ /radar/mgg/alt/bin/c20_1stat_s3 S3001.S20 1 > s3noise.dat
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  ##### files need to change #####
  sig_swh.f
  aformat.f
@@ -67,12 +76,6 @@ find the sampling characteristics of S3 and Altika
 S3: altitude 815 km;
     velocity 6690 m/s
     dt1: 0.493 s
-    
-    
-###############
-### modify satellite info ###
-file: /Volumes/radar/radar/mgg/alt/cdr/lib/setcnst.f
-ityp 11     Sentinel-3
    
    
  ##############
