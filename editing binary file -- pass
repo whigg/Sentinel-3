@@ -7,6 +7,12 @@ ncdump -h file.nc | grep time_20_ku | grep -v ice
 
 
 
+
+
+
+
+
+
 s3ab20hz standard_measurement.nc > test.dat
 
 to look at the extracted binary file:
