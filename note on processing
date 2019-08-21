@@ -21,6 +21,12 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
 ### .f code ###
  write a .f program s3ab20_cdr.f95 to do the editing and filtering
  
+ ###############
+ aedit.f
+ 
+ ##### files need to change #####
+ sig_swh.f
+ aformat.f
  
 ##################################################
 ##to look at condensed files in binary format (/cryosat2/gravity/filtered_data/*.int): ###
