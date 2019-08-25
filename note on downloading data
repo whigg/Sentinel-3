@@ -73,5 +73,8 @@ https://catalogue.onda-dias.eu/dias-catalogue/Products/$count?$search="beginPosi
 
 https://catalogue.onda-dias.eu/dias-catalogue/Products?$top=2000&$select=id&$search="name:S3A_SR_2_WAT__*"
 
+counting numners in a cetain day:
+ls -la | grep 'S3A_SR_2_WAT____20190707' | wc -l
+
 
 
