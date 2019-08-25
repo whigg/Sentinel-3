@@ -41,6 +41,14 @@ https://catalogue.onda-dias.eu/dias-catalogue/Products?$skip=2000&$top=2000&$sel
 
 
 
+
+https://catalogue.onda-dias.eu/dias-catalogue/Products?$skip=12000&$top=2000&$select=id&$search="name:S3A_SR_2_WAT__*"
+
+
+
+
+
+
 download_S3B.sh
 ***********************************************************
 
@@ -72,12 +80,18 @@ chmod +x download.com
 
 
 # searching by sensing date
-https://catalogue.onda-dias.eu/dias-catalogue/Products/$count?$search="beginPosition:[2016-02-01T00:00:00.000Z%20TO%202018-06-01T00:00:00.000Z], name:S3A_SR_2_WAT__*"
+https://catalogue.onda-dias.eu/dias-catalogue/Products/$count?$search="beginPosition:[2018-02-01T00:00:00.000Z%20TO%202018-06-01T00:00:00.000Z], name:S3A_SR_2_WAT__*"
 
 https://catalogue.onda-dias.eu/dias-catalogue/Products?$top=2000&$select=id&$search="name:S3A_SR_2_WAT__*"
 
 counting numners in a cetain day:
 ls -la | grep 'S3A_SR_2_WAT____20190707' | wc -l
+
+
+download by days:
+
+https://catalogue.onda-dias.eu/dias-catalogue/Products?$select=id&$search=%22beginPosition:[2016-02-01T00:00:00.000Z%20TO%202018-06-01T00:00:00.000Z],%20name:S3A_SR_2_WAT__*%22
+
 
 
 
