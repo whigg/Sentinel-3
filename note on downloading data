@@ -47,7 +47,10 @@ download_S3B.sh
 file="S3A_2000"
 # extract id and print to file:
 rm id.txt
-sed 's/(/ /g' $file | sed 's/)/ /g' | awk '{ for (i = 2; i <= NF; i += 2) print $i > "id.txt"}'
+# sed 's/(/ /g' $file | sed 's/)/ /g' | awk '{ for (i = 2; i <= NF; i += 2) print $i > "id.txt"}'
+#########################
+### use the updated version ###
+grep "<a:id>Products" $file | sed 's/(/ /g' | sed 's/)/ /g' | awk '{ for (i = 2; i <= NF; i += 2) print $i > "id.txt"}'
 # creat download links:
 rm download.com
 file2="id.txt"
