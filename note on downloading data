@@ -12,7 +12,7 @@ API:
 https://www.onda-dias.eu/cms/wp-content/uploads/2019/06/Catalogue-Open-Data-Protocol-User-Guide.pdf
 
 One example:
-wget --user=yaoyu.9404@gmail.com --password=Eequals271828.. --content-disposition 'https://catalogue.onda-dias.eu/dias-catalogue/Products(e39c2006-8f38-483e-a556-d34106b8f020)/$value'
+wget --user=yaoyu.9404@gmail.com --password=Eequals271828.. --content-disposition 'https://catalogue.onda-dias.eu/dias-catalogue/Products(594873a5-f43c-44d7-be85-84cbcfa6cc5a)/$value'
 
 
 searching S3A SRAL level-2 WAT files:
@@ -28,6 +28,10 @@ S3B_SR_2_WAT__*: 11260
 use wget to download a single .zip file with known id:
 
 wget --user=yaoyu.9404@gmail.com --password=Eequals271828.. --content-disposition 'https://catalogue.onda-dias.eu/dias-catalogue/Products(e39c2006-8f38-483e-a556-d34106b8f020)/$value'
+
+wget --user=yaoyu.9404@gmail.com --password=Eequals271828.. --content-disposition 'https://catalogue.onda-dias.eu/dias-catalogue/Products(3a5bcd22-1ab9-4df3-9a28-968dba989f25)/$value'
+
+
 
 
 
@@ -90,7 +94,7 @@ ls -la | grep 'S3A_SR_2_WAT____20190707' | wc -l
 
 download by days:
 
-https://catalogue.onda-dias.eu/dias-catalogue/Products?$select=id&$search=%22beginPosition:[2016-02-01T00:00:00.000Z%20TO%202018-06-01T00:00:00.000Z],%20name:S3A_SR_2_WAT__*%22
+https://catalogue.onda-dias.eu/dias-catalogue/Products?$select=id&$search=%22beginPosition:[2019-07-08T00:00:00.000Z%20TO%202019-07-09T00:00:00.000Z],%20name:S3A_SR_2_WAT__*%22
 
 
 
