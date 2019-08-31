@@ -3,7 +3,7 @@
  
 ########################################################
  a structure for jason data:
- /radar/mgg/alt/rfmt_jason/src/jason20hz.h
+ /cryosat/mgg/alt/rfmt_jason/src/jason20hz.h
  
 modify it to fit S3
 /radar/mgg/alt/rfmt_s3
@@ -25,7 +25,7 @@ put the 99-point filter(s3ab.dat) to filter.inc; done!
  aedit.f
  
  
- /radar/mgg/alt/bin/c20_1stat_s3 S3001.S20 1 > s3noise.dat
+ /cryosat/mgg/alt/bin/c20_1stat_s3 S3001.S20 1 > s3noise.dat
  
  
  
@@ -80,7 +80,7 @@ S3: altitude 815 km;
    
  ##############
  Jason example:
- /radar/mgg/alt/retrack/src
+ /cryosat/mgg/alt/retrack/src
  cd j20_cdr   # this is the directory for Jason 20 Hz editing and resampling
  ls
  filter.inc	j20_cdr.f95
@@ -117,7 +117,7 @@ S3: altitude 815 km;
  
  
  read netcdf files and make the 20 Hz data records for retracking:
- /radar/mgg/alt/rfmt_jason/src/jsgdr2wdr.c
+ /cryosat/mgg/alt/rfmt_jason/src/jsgdr2wdr.c
  
  make condensed data records from the 20 Hz waveform data:
- /radar/mgg/alt/retrack/src/c20_lrm_cdr
+ /cryosat/mgg/alt/retrack/src/c20_lrm_cdr
