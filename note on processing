@@ -1,5 +1,5 @@
  David's notes on data processing under:
- /Volumes/radar/radar/mgg/alt/doc
+ /cryosat/mgg/alt/doc
  
 ########################################################
  a structure for jason data:
@@ -75,7 +75,11 @@ result: s3ab.dat
 find the sampling characteristics of S3 and Altika
 S3: altitude 815 km;
     velocity 6690 m/s
-    dt1: 0.493 s
+    dt1: 0.0493 s
+    dx1: 329.8 m
+    dx2: 1319.2 m
+    
+altika: 
    
    
  ##############
