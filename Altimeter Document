@@ -1,0 +1,104 @@
+Altimeter documents
+
+Recipes on altimeter data processing to get the best mean sea surface slope
+Using Sentinel-3A/B as examples
+
+Step 1:
+Reading original (*.nc) files where there are hundreds of parameters and dump the 20 hz values we want to binary format.
+
+code directory: 
+/cryostat/mgg/alt/rfmt_s3
+data structure:
+s3ab20hz.h
+code:
+s3ab20hz *.nc >> outfile
+
+working directory: 
+S3/cdr (in external disk Sentinel 3)
+scripts:
+process_all_step1_S3A.csh
+process_all_step1_S3B.csh
+input: *.nc files
+output (binary): S3A.S20, S3B.S20
+to look at the output:
+gmtconvert S3A.S20 -bi11i,i8h | more
+
+
+
+Step 2: to get *.int
+edit bad data (flag, swh, ssha, mqe) then low-pass filtered into 5/sec data
+
+code directory: 
+/cryostat/mgg/alt/retrack/src/s3ab20_cdr
+code:
+s3ab20_cdr 1 S3A.S20 sentinel3Aa.int sentinel3Ad.int 1
+s3ab20_cdr 1 S3B.S20 sentinel3Ba.int sentinel3Bd.int 0
+filter: 99-point Parks-McClellan filter
+
+working directory: 
+S3/cdr (in external disk Sentinel 3)
+scripts:
+process_all_cdr_step2.csh
+input: S3A.S20, S3B.S20
+output (binary): sentinela.int, sentineld.int
+to look at the output:
+gmtconvert sentinela.int -bi7i | more
+or
+fmtcdr sentinela.int | more
+
+
+
+Step 3: to get *.edt, *.flt, *.cor, *.binc
+Edit with respect to EGM2008 when along track slope of the data minus the global grid of sea surface height exceeds a threshold;
+Filter altimeter data along track;
+Apply slope correction;
+Make binary xyds files for global gridding programs.
+
+code directory:
+cryosat/mgg/alt/cdr/src
+
+working directory: 
+cryosat2/gravity/filtered_data
+scripts:
+prepare_sentinel.com
+
+
+*.int, *.edt, *.flt, *.cor are in 28-byte binary format
+fmtcdr *.edt/*.flt/*.cor | more
+or 
+gmtconvert *.edt/*.flt/*.cor -bi7i| more
+
+utcsec (s)
+microsec (1e-6)
+lat (1e-6)
+lon (1e-6)
+ssh (alt-range, 0.1 mm)
+swh (0.1 mm)
+???
+
+
+
+*.binc are in 16-byte binary format (lon, lat, vertical deflection, sigma)
+gmtconvert *.binc -bi4i | more
+
+
+
+
+
+Step 4: to get *.img and north_tot.img/east_tot.img
+read xyds (*.binc) data from either ascending or descending and use block mean to fill the img world Mercator i*2 files.
+
+Code directory:
+/cryostat/mgg/alt/grav_img
+img_ds_bm -D -S -F
+
+Working directory:
+/cryosat2/gravity/1min_V29
+Script to produce individual *.img:
+  pre_prcoc_sentinel.com
+script to combine *.img together (to get northd.img/eastd.img):
+  interp_*.com
+script to get full slope (to get north_tot.img/east_tot.img):
+ not sure 
+
+
