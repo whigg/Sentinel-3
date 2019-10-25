@@ -63,17 +63,25 @@ scripts:
 prepare_sentinel.com
 
 
-*.int, *.edt, *.flt, *.cor are in 28-byte binary format
+*.int are in 28-byte binary format
 fmtcdr *.int | more
 gmtconvert *.int -bi7i| more
-
- 
-gmtconvert *.edt/*.flt/*.cor -bi7i| more
 
 utcsec (s)
 microsec (1e-6)
 lat (1e-6)
 lon (1e-6)
+ssh (alt-range, 0.1 mm)
+swh (0.1 mm)
+???
+
+
+*.edt, *.flt, *.cor are in 28-byte binary format
+gmtconvert *.edt/*.flt/*.cor -bi1d,5f| more
+
+utcsec (s)
+lat
+lon
 ssh (alt-range, 0.1 mm)
 swh (0.1 mm)
 ???
