@@ -64,8 +64,10 @@ prepare_sentinel.com
 
 
 *.int, *.edt, *.flt, *.cor are in 28-byte binary format
-fmtcdr *.edt/*.flt/*.cor | more
-or 
+fmtcdr *.int | more
+gmtconvert *.int -bi7i| more
+
+ 
 gmtconvert *.edt/*.flt/*.cor -bi7i| more
 
 utcsec (s)
@@ -78,8 +80,8 @@ swh (0.1 mm)
 
 
 
-*.binc are in 16-byte binary format (lon, lat, vertical deflection, sigma)
-gmtconvert *.binc -bi4i | more
+*.binc are in 4-byte single-precision float binary format (lon, lat, slope)
+gmtconvert *.binc -bi3f | more
 
 
 
